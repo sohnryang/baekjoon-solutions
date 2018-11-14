@@ -1,6 +1,6 @@
-# Baekjun_solutions
+# baekjoon-solutions
 
-Solutions for [Baekjun Online Judge][0]
+Solutions for [Baekjoon Online Judge][0]
 
 [0]: https://www.acmicpc.net/
 
