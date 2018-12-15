@@ -28,4 +28,5 @@ int main() {
     for (int i = 1; i <= in_n; ++i)
         scanf("%d", &in_cards[i]);
     printf("%d\n", buy(in_n));
+    return 0;
 }
