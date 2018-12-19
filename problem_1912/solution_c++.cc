@@ -27,4 +27,5 @@ int main() {
         scanf("%d", &in_seq[i]);
     memset(dp, 0, sizeof(dp));
     printf("%d\n", maxsum());
+    return 0;
 }
