@@ -2,11 +2,13 @@
 Baekjoon Online Judge #10828
 https://www.acmicpc.net/problem/10828
 """
+from collections import deque
+from sys import stdin
 
 in_n = int(input())
-stack = []
+stack = deque()
 for _ in range(in_n):
-    cmd = input()
+    cmd = stdin.readline().strip()
     if cmd == 'size':
         print(len(stack))
     elif cmd == 'empty':
