@@ -2,7 +2,7 @@ C++을 사용하는 DP 코드이다.
 
 간단하게 0이 출력되는 경우를 세는 `fib_count0` 와 `fib_count1` 함수를 만들고 메모이제이션해서 해결했다.
 
-```
+```c++
 #include <iostream>
 #include <cstring>
  
