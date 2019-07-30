@@ -1,0 +1,9 @@
+{
+    "pyls": {
+        "configurationSources": ["pycodestyle"],
+        "plugins": {
+            "pycodestyle": {"enabled": true},
+            "pylint": {"enabled": false}
+        }
+    }
+}
