@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "venv/bin/python"
+    "python.pythonPath": "venv/bin/python",
+    "files.associations": {
+        "__locale": "cpp",
+        "vector": "cpp"
+    }
 }
