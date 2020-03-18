@@ -20,4 +20,7 @@ while len(people) > 1:
     kill = (kill + K) % len(people)
     if kill == 0:
         kill = len(people)
-print(', %d>' % people[0])
+if N != 1:
+    print(', %d>' % people[0])
+else:
+    print('1>')
