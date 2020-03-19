@@ -3,7 +3,10 @@
  * https://www.acmicpc.net/problem/1600
  */
 
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <cstring>
+#include <queue>
+#include <utility>
 
 using namespace std;
 
@@ -20,6 +23,7 @@ int bfs() {
     memset(dist, -1, sizeof dist);
     queue<pair<pair<int, int>, int>> q;
     dist[0][0][K] = 0;
+    if (W == 1 && H == 1) return 0;
     q.push(make_pair(make_pair(0, 0), K));
     while (!q.empty()) {
         auto u = q.front(); q.pop();
