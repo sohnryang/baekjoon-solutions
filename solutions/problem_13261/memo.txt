@@ -1,0 +1,9 @@
+Sample Input
+============
+6 3
+11 11 11 24 26 100
+
+DP Formula
+==========
+cost(a, b) := (C_a + C_(a + 1) + ... + C_b) * (b - a + 1)
+solve(i, j) = solve(i, p) + cost(p, j) where 1 <= p <= i
