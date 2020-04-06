@@ -1,0 +1,40 @@
+Sample Input/Output
+===================
+
+Input
+-----
+5
+1 2 1 2 1
+4
+1 1 5
+2 5
+1 2 5
+2 5
+
+Output
+------
+6
+10
+
+Query Types
+===========
+1 L R: stars drop on [L, R]
+2 X: print stars dropped on X
+
+Segtree and pseudocode
+======================
+index |0 1 2 3 4
+------+---------
+value |1 2 1 2 1
+       1--------
+       2---- 3--
+       4-- 5 6 7
+
+Update all subsecting intervals when stars drop
+
+update(index, start_value, (segtree stuff)) {
+  if precisely in node range {
+    add total stars to node range
+  }
+  ...divide and update recursively
+}
