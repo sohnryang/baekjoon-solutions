@@ -34,6 +34,6 @@ MOVE x y dx dy: move a window including pixel at (x, y) dx pixels horizontally, 
 
 Data Structure
 ==============
-grid: [((int, int), (int, int)), int]
+grid: [((int, int), (int, int), int)]
 - A list containing all the windows. Index 0 is top left position, and index 1 is bottom right position. The last index is the id of window.
 
