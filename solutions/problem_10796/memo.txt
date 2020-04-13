@@ -1,0 +1,39 @@
+Sample Input and Output
+=======================
+
+Input
+-----
+320 200
+OPEN 50 50 10 10
+OPEN 70 55 10 10
+OPEN 90 50 10 10
+RESIZE 55 55 40 40
+RESIZE 55 55 15 15
+MOVE 55 55 40 0
+CLOSE 55 55
+CLOSE 110 60
+MOVE 95 55 0 -100
+
+Output
+------
+Command 4: RESIZE - window does not fit
+Command 7: CLOSE - no window at given position
+Command 9: MOVE - moved 50 instead of 100
+2 window(s):
+90 0 15 15
+115 50 10 10
+
+
+Queries
+=======
+OPEN x y w h: open a window at (x, y) with width w and height h.
+CLOSE x y: close a window including pixel at (x, y).
+RESIZE x y w h: set size of window containing pixel (x, y) to (w, h).
+MOVE x y dx dy: move a window including pixel at (x, y) dx pixels horizontally, dy pixels vertically.
+
+
+Data Structure
+==============
+grid: [((int, int), (int, int)), int]
+- A list containing all the windows. Index 0 is top left position, and index 1 is bottom right position. The last index is the id of window.
+
