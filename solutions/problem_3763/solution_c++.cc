@@ -24,6 +24,10 @@ const int SUDOKU_SIZE = 16, MATRIX_COLS = 16 * 16 * 16;
 column_object master;
 column_object matrix[MATRIX_COLS];
 
+inline int get_box_position(int row, int col) {
+  return (row / BOX_SIZE) * 4 + col / BOX_SIZE;
+}
+
 void process_board() {
   for (int i = 0; i < SUDOKU_SIZE; ++i) {
     for (int j = 0; j < SUDOKU_SIZE; ++j) {
