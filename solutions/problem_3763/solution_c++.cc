@@ -25,7 +25,7 @@ column_object master;
 column_object matrix[MATRIX_COLS];
 
 inline int get_box_position(int row, int col) {
-  return (row / BOX_SIZE) * 4 + col / BOX_SIZE;
+  return (row / BOX_SIZE) * BOX_SIZE + col / BOX_SIZE;
 }
 
 void process_board() {
