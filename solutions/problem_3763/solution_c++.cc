@@ -56,6 +56,7 @@ void construct_headers() {
     }
   }
   master->left = prev_col;
+  prev_col->right = master;
 }
 
 void construct_matrix() { construct_headers(); }
