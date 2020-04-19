@@ -35,6 +35,8 @@ void process_sudoku() {
     }
 }
 
+int box_num(int i, int j) { return i / BOX_SIZE * BOX_SIZE + j / BOX_SIZE; }
+
 void construct_headers() {
   master = new column_object();
   master->up = master;
