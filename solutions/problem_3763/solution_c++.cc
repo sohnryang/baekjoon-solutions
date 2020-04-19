@@ -50,6 +50,7 @@ void construct_headers() {
         col->up = col;
         col->down = col;
         col->name = {i, j, k};
+        col->size = 0;
         headers.push_back(col);
         prev_col = col;
       }
