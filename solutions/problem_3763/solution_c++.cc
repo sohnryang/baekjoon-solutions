@@ -147,7 +147,10 @@ void finalize() {
     cout << y << ' ' << x << ' ' << sol << ' ' << '\n';
     sudoku_solution[y][x] = sol;
   }
-  for (int i = 0; i < SIZE; ++i) cout << sudoku_solution[i] << '\n';
+  for (int i = 0; i < SIZE; ++i) {
+    for (int j = 0; j < SIZE; ++j) cout << sudoku_solution[i][j];
+    cout << '\n';
+  }
 }
 
 void cover(column_object* col) {
