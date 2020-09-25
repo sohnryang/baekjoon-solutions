@@ -34,7 +34,7 @@ for i in range(10, 1001):
 
 clear_long_str()
 
-# Phase 1: interpolate using numbers from phase 0
+# Phase 1: interpolate by substracting 1 from phase 0 numbers
 for i in range(1, 1001):
     if phase_table[i] != 0:
         continue
