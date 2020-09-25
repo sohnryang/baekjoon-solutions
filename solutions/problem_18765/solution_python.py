@@ -4,6 +4,8 @@ https://www.acmicpc.net/problem/18765
 """
 def clear_long_str():
     for i in range(1001):
+        if solutions[i] is None:
+            continue
         if len(solutions[i]) > 75:
             solutions[i] = None
             phase_table[i] = None
