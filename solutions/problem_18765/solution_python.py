@@ -2,6 +2,24 @@
 Problem 18765: Solution generator
 https://www.acmicpc.net/problem/18765
 """
+import sys
+import subprocess
+
+def check_code():
+    code_template = 'require("assert").strict.deepEqual(%d, "%s")'
+    for i in range(1001):
+        if solutions[i] is None:
+            continue
+        exit_code = subprocess.run([
+            'node',
+            '-e',
+            f"'{code_template % (i, solutions[i])}'"
+        ]).returncode
+        if exit_code != 0:
+            print(f'Failed at {i}')
+            return False
+    return True
+
 def clear_long_str():
     for i in range(1001):
         if solutions[i] is None:
