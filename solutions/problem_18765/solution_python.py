@@ -42,3 +42,16 @@ for i in range(1, 1001):
         continue
     solutions[i - 1] = f'{solutions[i][:-8]}-{solutions[i][-7:]}'
     phase_table[i - 1] = 1
+
+# Phase 2: interpolate by multiplying phase 0 numbers
+for mult in range(2, 1000):
+    for i in range(2, 1000 // mult):
+        if phase_table[mult] != 0:
+            continue
+        if solutions[i] is None:
+            continue
+        if solutions[mult * i] is not None:
+            continue
+        solutions[mult * i] = f'[{solutions[mult][:-8]}]*[{solutions[i]}]'
+
+clear_long_str()
