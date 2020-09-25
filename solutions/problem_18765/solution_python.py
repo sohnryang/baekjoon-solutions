@@ -40,5 +40,5 @@ for i in range(1, 1001):
         continue
     if solutions[i - 1] is not None:
         continue
-    solutions[i - 1] = f'{solutions[i][:-5]}-{solutions[i][-4:]}'
+    solutions[i - 1] = f'{solutions[i][:-8]}-{solutions[i][-7:]}'
     phase_table[i - 1] = 1
