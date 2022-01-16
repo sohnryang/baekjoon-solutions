@@ -4,23 +4,28 @@
  */
 
 #include <algorithm>
+#include <cmath>
 #include <cstdio>
 #include <cstring>
-#include <cmath>
 
 using namespace std;
 
-const int INF = 987654321, MAX_N = 50000;
-int N, dp[MAX_N];
+const int MAX_N = 50000;
+int N, dp[MAX_N + 1];
 
 int squares(int n) {
   int sqrted = sqrt(n);
-  if (sqrted * sqrted == n) return 1;
+  if (sqrted * sqrted == n)
+    return n != 0;
   int &ret = dp[n];
-  if (ret != -1) return ret;
-  ret = INF;
-  for (int i = 1; i <= sqrted; ++i)
-    ret = min(ret, 1 + squares(n - i * i));
+  if (ret != -1)
+    return ret;
+  for (int i = 1; i <= sqrted; ++i) {
+    if (ret == -1)
+      ret = 1 + squares(n - i * i);
+    else
+      ret = min(ret, 1 + squares(n - i * i));
+  }
   return ret;
 }
 
