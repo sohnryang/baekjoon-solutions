@@ -3,7 +3,7 @@ from sys import argv
 import os
 import re
 
-ext_table = {"py": "python", "cc": "c++", "rs": "rust"}
+ext_table = {"py": "python", "cc": "c++", "rs": "rust", "go": "go"}
 regex = re.compile(r"\d+")
 
 if __name__ == "__main__":
