@@ -3,20 +3,19 @@ Baekjoon Online Judge #2798
 https://www.acmicpc.net/problem/2798
 """
 
+import itertools
 from sys import stdin
+
 infast = lambda: stdin.readline().strip()
 
 N, M = map(int, infast().split())
-cards = list(map(int, infast().split()))
-result = 0
+A = list(map(int, infast().split()))
 
-for i in range(N - 2):
-    for j in range(i + 1, N - 1):
-        for k in range(j + 1, N):
-            current = cards[i] + cards[j] + cards[k]
-            if current > M:
-                continue
-            if M - current < M - result:
-                result = current
-
-print(result)
+res = None
+for perm in itertools.permutations(A, 3):
+    s = sum(perm)
+    if s > M:
+        continue
+    if res is None or res < s:
+        res = s
+print(res)
