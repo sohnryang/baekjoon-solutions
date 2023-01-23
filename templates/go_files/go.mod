@@ -1,3 +1,3 @@
-module example/hello
+module github.com/sohnryang/baekjoon-solutions/solutions/prob{prob_no}
 
-go 1.17
+go 1.18
