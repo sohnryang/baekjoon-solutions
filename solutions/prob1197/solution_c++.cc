@@ -3,54 +3,63 @@
  * https://www.acmicpc.net/problem/1197
  */
 
-#include <functional>
+#include <algorithm>
 #include <ios>
 #include <iostream>
-#include <queue>
+#include <numeric>
 #include <utility>
 #include <vector>
 
+std::vector<int> parent_id, rank;
+std::vector<std::pair<long long, std::pair<int, int>>> edges;
 int V, E;
-std::vector<std::vector<std::pair<long long, int>>> G;
+
+int find_set(int x) {
+  if (x != parent_id[x]) {
+    parent_id[x] = find_set(parent_id[x]);
+  }
+  return parent_id[x];
+}
+
+void union_set(int x, int y) {
+  int root_x = find_set(x), root_y = find_set(y);
+  if (root_x == root_y)
+    return;
+  if (rank[root_x] > rank[root_y])
+    parent_id[root_y] = root_x;
+  else {
+    parent_id[root_x] = root_y;
+    if (rank[root_x] == rank[root_y])
+      rank[root_y]++;
+  }
+}
 
 int main() {
   std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
 
   std::cin >> V >> E;
-  G.assign(V, {});
+  parent_id.assign(V, 0);
+  rank.assign(V, 0);
+  std::iota(parent_id.begin(), parent_id.end(), 0);
   for (int i = 0; i < E; i++) {
     int A, B;
     long long C;
     std::cin >> A >> B >> C;
     A--;
     B--;
-    G[A].push_back({C, B});
-    G[B].push_back({C, A});
+    edges.push_back({C, {A, B}});
   }
-  std::priority_queue<std::pair<long long, int>,
-                      std::vector<std::pair<long long, int>>, std::greater<>>
-      pq;
-  int tree_cost = 0;
-  std::vector<bool> visited(V, false);
-  auto mark_node = [&pq, &visited](int here) {
-    visited[here] = true;
-    for (const auto &[there_weight, there] : G[here]) {
-      if (visited[there])
-        continue;
-      pq.push({there_weight, there});
-    }
-  };
-  mark_node(0);
-  while (!pq.empty()) {
-    auto [here_weight, here] = pq.top();
-    pq.pop();
-    if (visited[here])
+  std::sort(edges.begin(), edges.end());
+  int res = 0;
+  for (const auto &[weight, nodes] : edges) {
+    const auto &[here, there] = nodes;
+    if (find_set(here) == find_set(there))
       continue;
-    tree_cost += here_weight;
-    mark_node(here);
+    union_set(here, there);
+    res += weight;
   }
-  std::cout << tree_cost << "\n";
+  std::cout << res << "\n";
 
   return 0;
 }
