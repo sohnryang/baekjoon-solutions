@@ -1,6 +1,5 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/c,c++,python,kotlin,go
-# Edit at https://www.toptal.com/developers/gitignore?templates=c,c++,python,kotlin,go
+# Created by https://www.toptal.com/developers/gitignore/api/c,c++,python,kotlin,go,ocaml
+# Edit at https://www.toptal.com/developers/gitignore?templates=c,c++,python,kotlin,go,ocaml
 
 ### C ###
 # Prerequisites
@@ -48,7 +47,7 @@
 *.pdb
 
 # Kernel Module Compile Results
-# *.mod*
+*.mod*
 *.cmd
 .tmp_versions/
 modules.order
@@ -67,7 +66,7 @@ dkms.conf
 # Compiled Dynamic libraries
 
 # Fortran module files
-# *.mod
+*.mod
 *.smod
 
 # Compiled Static libraries
@@ -92,10 +91,6 @@ dkms.conf
 
 # Go workspace file
 go.work
-
-### Go Patch ###
-/vendor/
-/Godeps/
 
 ### Kotlin ###
 # Compiled class file
@@ -122,6 +117,35 @@ go.work
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+### OCaml ###
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.cmx
+*.cmxs
+*.cmxa
+
+# ocamlbuild working directory
+_build/
+
+# ocamlbuild targets
+*.byte
+*.native
+
+# oasis generated files
+setup.data
+setup.log
+
+# Merlin configuring file for Vim and Emacs
+.merlin
+
+# Dune generated files
+*.install
+
+# Local OPAM switch
+_opam/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -225,7 +249,15 @@ ipython_config.py
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
 #poetry.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
 
 # Celery stuff
@@ -269,11 +301,21 @@ dmypy.json
 cython_debug/
 
 # PyCharm
-#  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# End of https://www.toptal.com/developers/gitignore/api/c,c++,python,kotlin,go
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
+# LSP config files
+pyrightconfig.json
+
+# End of https://www.toptal.com/developers/gitignore/api/c,c++,python,kotlin,go,ocaml
 data*.txt
