@@ -31,7 +31,7 @@ int main() {
 
   pair<int, int> res(numeric_limits<int>::max(), 0);
   for (int src = 1; src <= N; src++) {
-    int dist[MAX_N] = {0};
+    int dist[MAX_N + 1] = {0};
     dist[src] = 0;
     queue<pair<int, int>> q;
     q.push({0, src});
